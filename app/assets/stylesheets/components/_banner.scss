@@ -1,0 +1,14 @@
+.banner {
+  color: white;
+  text-align: center;
+  height: 60vh;
+  background:rgba(0, 101, 168, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-content{
+  display:block;
+  overflow:hidden;
+}

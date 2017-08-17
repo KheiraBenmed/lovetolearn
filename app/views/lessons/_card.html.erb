@@ -3,8 +3,12 @@
    <a class="card" href="<%= lesson_path(lesson) %>">
     <span class="card-category cat-<%= lesson.category_number %>"><%= lesson.category %>
     </span>
-    <h2 class="">
-
-    </h2>
+    <h2 class="card-name"><%= lesson.name %></h2>
+     <span class="lesson-informationLabel">
+        <i class="lesson-informationIcon  icon-calendar3"></i>
+    </span>
+    <p class="card-description"><%= lesson.description[0..120] + '...' %></p>
+      <p class="show-lesson show-lesson-cat-<%= lesson.category_number %>">Show lesson</p>
+    </a>
   </div>
 </div>
