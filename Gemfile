@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.3.4'
 
 gem 'devise'
+gem 'faker'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'pg'
@@ -11,11 +12,13 @@ gem 'redis'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
+gem 'coffee-rails'
 gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
+gem 'bootstrap-datepicker-rails'
 
 group :development, :test do
   gem 'pry-byebug'
