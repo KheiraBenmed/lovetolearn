@@ -2,8 +2,8 @@ class Lesson < ApplicationRecord
   belongs_to :user
   has_many :meetings, dependent: :destroy
   has_many :reviews, dependent: :destroy
-  # after_validation :geocode, if: :address_changed?
-  # geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+  geocoded_by :address
 
   # Turn Algolia indexing off in dev. mode
   if Rails.env.production?

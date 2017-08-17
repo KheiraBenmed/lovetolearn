@@ -20,6 +20,16 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'bootstrap-datepicker-rails'
 
+# For Algolia instant search
+gem "algoliasearch-rails"
+
+# For Gmaps and Autocomplete
+gem "gmaps4rails"
+gem 'geocoder'
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'

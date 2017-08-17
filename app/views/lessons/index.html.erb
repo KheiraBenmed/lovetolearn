@@ -1,0 +1,117 @@
+<% content_for(:title_tag) do %>
+  <%= "Learn'n up | Thousand of lessons available" %>
+<% end %>
+
+<section class="banner">
+  <video autoplay="autoplay" loop="loop" class="video" poster="<%= image_path 'poster-home-video.jpg' %>">
+    <source type="video/mp4" src="<%= video_path 'video-1.mp4' %>">
+  </video>
+  <div class="banner-content">
+    <h1 class="logo">
+      <%= link_to root_path do %>
+        <%= image_tag "logo/logo-large.png" %>
+      <% end %>
+      <p>Oh Love to learn baby</p>
+    </h1>
+  </div>
+</section>
+
+<section class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="description">
+        <div class="col-xs-8 col-sm-4">
+          <h3 class='description-title'>Skills</h3>
+          <%= image_tag 'logos_for_index/skills.png', class:'description-image' %>
+          <p>Develop sought-after skills for the current job market</p>
+        </div>
+        <div class="col-xs-8 col-sm-4">
+          <h3 class='description-title'>Coaching</h3>
+          <%= image_tag 'logos_for_index/growth.png', class:'description-image' %>
+          <p>A coach to motivate you to achieve your goal</p>
+        </div>
+        <div class="col-xs-8 col-sm-4">
+          <h3 class='description-title'>Rewards</h3>
+          <%= image_tag 'logos_for_index/award.png', class:'description-image' %>
+          <p>Our certificates and degrees are officially recognized internationally</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrapper-grey">
+  <div class="container">
+    <div class="row">
+    <%= render 'categories' %>
+    </div>
+    <%= render 'cards' %>
+  </div>
+</section>
+
+<section class="wrapper-white">
+  <div class="container padded">
+    <h3 class="description-title"><%= image_tag 'logos_for_index/good.png', class:'description-image' %>Our latest reviews</h3>
+    <div class="row">
+    <% @reviews.each do |review| %>
+      <%= render 'review', review: review, lesson: review.lesson.name %>
+    <% end %>
+    </div>
+  </div>
+</section>
+
+<section class="wrapper-white" >
+  <div class="container padded">
+    <h3 class="description-title"><%= image_tag 'logos_for_index/map.png', class:'description-image' %>Our local presence</h3>
+  </div>
+  <!-- The map will be drawn in this div -->
+  <div id="map" style="width: 100%; height: 450px;"></div>
+</section>
+
+<% content_for(:after_js) do %>
+  <script>
+    // Creation of Google Maps
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ provider: { scrollwheel: false, zoomControl: false }, internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(16);
+        }
+      });
+    });
+    // On production only initialize Algolia search
+    <% if Rails.env.production? && @algolia %>
+      $('document').ready(function(){
+        var lessons = instantsearch({
+          appId: '<%= ENV['ALGOLIA_ID'] %>',
+          apiKey: '<%= ENV['ALGOLIA_KEY'] %>',
+          indexName: 'Lesson',
+        });
+        var lessonsHits = instantsearch.widgets.hits({
+          container: document.querySelector('#lessons'),
+          hitsPerPage: 100,
+          templates: {
+            item: getTemplate('lesson'),
+            empty: getTemplate('no-results-lesson'),
+          }
+        });
+        var searchBox = instantsearch.widgets.searchBox({
+          container: document.querySelector('#search-input'),
+          placeholder: 'Search for your lesson',
+        });
+        lessons.addWidget(lessonsHits);
+        lessons.addWidget(searchBox);
+        lessons.start();
+        function getTemplate(templateName) {
+          return document.querySelector("#" + templateName + "-template").innerHTML;
+        };
+      });
+    <% end %>
+  </script>
+<% end %>
+

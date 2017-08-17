@@ -1,0 +1,59 @@
+<!-- If in production and not in a category-index than use Algolia to generate dynamically the cards -->
+<% if Rails.env.production? && @algolia %>
+
+  <div class="row">
+    <div class="description">
+      <div class="col-xs-12">
+        <div id="search-input"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div id="lessons"></div>
+  </div>
+
+  <!-- Card template for Algolia -->
+  <script type="text/html" id="lesson-template">
+    <div class="lesson">
+      <div class="col-sm-3 lesson-card">
+          <a class="card" href="lessons/{{{objectID}}}">
+          <span class="card-category cat-{{{category_number}}}">{{{_highlightResult.category.value}}}</span>
+          <h2 class="card-name">{{{_highlightResult.name.value}}}</h2>
+          <span class="lesson-informationLabel">
+            <i class="lesson-informationIcon  icon-calendar3"></i>
+            6 mois | Paris
+          </span>
+          <p class="card-description">{{{_highlightResult.description_crop.value}}}</p>
+          <p class="show-lesson show-lesson-cat-{{{category_number}}}">Show lesson</p>
+        </a>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/html" id="no-results-lesson-template">
+    <div id="no-results-message">
+      <p>We didn't find any profiles for the search <em>"{{query}}"</em>.</p>
+      <a href="." class='clear-all'>Clear search</a>
+    </div>
+  </script>
+<!-- If in dev. than do not use Algolia (to avoid discrepencies between DB local vs. Heroku) -->
+<% else %>
+  <div class="text-center padded" id="newsletter">
+    <% if @lessons.empty? %>
+      <h3>No lessons available yet...</h3>
+      <p>Do you want to receive an email as soon as a new lesson is available?</p>
+      <form class="form-inline">
+        <input type="email" placeholder="your email" class="form-control">
+        <input type="submit" value="Get informed" class="btn btn-success btn-bordered btn-bordered-primary">
+      </form>          <% end %>
+    <div class="row">
+      <div id="lessons">
+        <% @lessons.each do |lesson| %>
+          <%= render 'card', lesson: lesson %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
