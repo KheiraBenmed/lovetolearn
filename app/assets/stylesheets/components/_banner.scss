@@ -7,8 +7,154 @@
   align-items: center;
   justify-content: center;
 }
-
 .banner-content{
   display:block;
   overflow:hidden;
+}
+.banner h1 {
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+.banner h1.logo img{
+  width: 150px;
+}
+.banner p {
+  font-size: 30px;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 1);
+  margin-bottom: 20px;
+}
+.cover{
+  background-size:cover;
+}
+.video {
+position: fixed;
+right: 0;
+bottom: 0;
+min-width: 100%;
+min-height: 100%;
+width: auto;
+height: auto;
+z-index: -100;
+background-size: cover;
+}
+.list-category{
+  margin:0 auto 50px auto;
+  padding: 0;
+  width:450px;
+  list-style-type: none;
+}
+.list-category li{
+  margin: 5px;
+  background-color: white;
+  padding:8px 16px;
+}
+.list-category li:hover{
+  opacity: 0.6
+}
+.list-category li a{
+  text-decoration:none;
+}
+.list-category li a:hover{
+  text-decoration:underline;
+}
+.cat-1{
+  background-color: $cat1 !important;
+}
+.cat-1 a{
+  color: white;
+}
+.cat-1 a:hover{
+  color: white;
+  text-decoration: none !important;
+}
+.cat-2{
+  background-color: $cat2 !important;
+}
+.cat-2 a{
+  color: white;
+}
+.cat-2 a:hover{
+  color: white;
+  text-decoration: none !important;
+}
+.cat-3{
+  background-color: $cat3 !important;
+}
+.cat-3 a{
+  color: white;
+}
+.cat-3 a:hover{
+  color: white;
+  text-decoration: none !important;
+}
+.cat-4{
+  background-color: $cat4 !important;
+}
+.cat-4 a{
+  color: white;
+}
+.cat-4 a:hover{
+  color: white;
+  text-decoration: none !important;
+}
+.cat-5{
+  background-color: $cat5 !important;
+}
+.cat-5 a{
+  color: white;
+}
+.cat-5 a:hover{
+  color: white;
+  text-decoration: none !important;
+}
+.cat-6{
+  background-color: $cat6 !important;
+}
+.cat-6 a{
+  color: white;
+}
+.cat-6 a:hover{
+  color: white;
+  text-decoration: none !important;
+}
+.cat-7{
+  background-color: $cat7 !important;
+}
+.cat-7 a{
+  color: white;
+}
+.cat-7 a:hover{
+  color: white;
+  text-decoration: none !important;
+}
+.banner-user {
+  height: 30vh;
+}
+.banner-user-content {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-create {
+  height: 50vh;
+  color: white;
+  background-image:linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://unsplash.it/800/600?image=534');
+  background-size: cover;
+  align-items: center;
+}
+
+.title_create {
+  color: white !important;
+}
+
+.title_create_2 {
+  color: #75DFF2 !important;
+}
+.section-show {
+  padding: 40px 0;
 }

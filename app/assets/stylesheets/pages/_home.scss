@@ -1,1 +1,77 @@
 // Specific CSS for your home-page
+/* -------------------------------------
+ * CSS code specific to home page
+ * (margin/padding adjustments)
+ * ------------------------------------- */
+.wrapper-grey{
+  background: #f6f6f6;
+}
+.wrapper-white{
+  background: #ffffff;
+}
+.description-image {
+  width: 40px;
+}
+
+.description-image-small {
+  width: 30px;
+  margin-right: 3px;
+  margin-left: 3px;
+  padding: 2px;
+}
+
+.description-image-small-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  padding: 2px;
+
+}
+
+.description-title {
+  text-align: center;
+  color: #311782;
+  line-height: 100%;
+}
+.description-title img {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.description {
+  text-align: center;
+  overflow:hidden;
+}
+.description h3 {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom:25px;
+  font-weight: 600;
+}
+.description p {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top:25px;
+}
+.category-list {
+  margin: 80px 0;
+  text-align:center;
+}
+.list-category {
+  width:350px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.marged{
+  margin:25px 0;
+}
+.no-marged{
+  margin:0;
+}
+.align-right{
+  text-align:right;
+}
+.align-left{
+  text-align:left;
+}

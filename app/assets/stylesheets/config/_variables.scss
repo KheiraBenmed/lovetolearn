@@ -1,0 +1,49 @@
+/* -------------------------------------
+ * Fonts
+ * ------------------------------------- */
+// Google fonts
+@import url("https://fonts.googleapis.com/css?family=Encode+Sans+Semi+Condensed:300,400,700|PT+Sans+Narrow" rel="stylesheet");
+$base-font: "Encode Sans Semi Condensed", "sans-serif";
+$header-font:"PT Sans Narrow", "sans-serif";
+
+// Local fonts (uncomment following lines)
+// @font-face {
+//   font-family: "Font Name";
+//   src: font-url('FontFile.eot');
+//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
+//        font-url('FontFile.woff') format('woff'),
+//        font-url('FontFile.ttf') format('truetype')
+// }
+// $my-font: "Font Name";
+
+// Font-size and line-height
+$base-size: 14px;
+$base-height: 1.4;
+
+/* -------------------------------------
+ * Colors
+ * ------------------------------------- */
+// Scheme
+// $brand-color: #D23333;
+
+$red: #EE5F5B;
+$dark-red: #973961;
+$blue: #301781;
+$light-blue: #76E2F4;
+$dark-blue: #1C44AC;
+$yellow: #eadc41;
+$orange: #FB9935;
+$green: #00AD7C;
+$gray: #000000;
+$gray-light: #f6f6f6;
+$gray-dark: #666666;
+$black: #000000;
+
+$cat1: #22C7A9;
+$cat2: #FF5200;
+$cat3: #E41655;
+$cat4: #04536C;
+$cat5: #ADACA7;
+$cat6: #FFCD38;
+$cat7: #30E3CA;
+
